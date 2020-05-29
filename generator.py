@@ -8,9 +8,8 @@ def subsets_with_sum(numbers_set:list, target:int, with_replacement:bool):
         elif generation_target < sum(generation_list):
             return
     
-        for u in range(index, len(numbers_set)):
-            generator(u + replacement_variable, generation_list + [numbers_set[u]], generated_set, generation_target)
-            print(str(generated_set) + "\n")
+        for i in range(index, len(numbers_set)):
+            generator(i + replacement_variable, generation_list + [numbers_set[i]], generated_set, generation_target)
 
         return generated_set
     
