@@ -10,5 +10,7 @@ if __name__ == "__main__":
         )
 
     df_set = pd.DataFrame({"possible_set": combinations_set})
+    df_set["total"] = [sum(x) for x in df_set["possible_set"]]
+
     df_set.to_csv("possible_combinations.csv", sep=",", header=True, index=False)
     print("Done!")
