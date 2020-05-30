@@ -1,4 +1,5 @@
 # Possible combinations of a sum
+> This tutorial assumes that your on Unix like OS. If not make the necessary adjustments.
 
 #### Requirement
 * [Python3](https://www.python.org/)
