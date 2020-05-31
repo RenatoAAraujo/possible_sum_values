@@ -22,5 +22,5 @@ pip install -r requirements.txt
 ``` 
 
 #### Generate Combinations
->Run the file [export_data.py](export_data.py) and tweak the the variables ```numbers_to_be_used```,```target``` and ```numeric_range```.
->Multiple combination target can be used, change the range accordingly.
+>Run the file [export_data.py](export_data.py) and tweak the the variables ```total_numbers_to_be_used``` and ```numbers_to_be_used```.
+>Multiple combinations target can be used, change the target range accordingly.
