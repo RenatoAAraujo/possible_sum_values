@@ -24,7 +24,7 @@ if __name__ == "__main__":
     numbers_to_be_used = range(0, 40)
 
     complete_df = pd.DataFrame()
-    for t in range(60, 71):
+    for t in range(60, 71)[::-1]:
         df = get_combination_lists(t, numbers_to_be_used)
         complete_df = pd.concat([complete_df, df]).sort_values(by=["total"], ascending=False)
     complete_df.to_csv(f"possible_combinations.csv", sep=",", header=True, index=False)
