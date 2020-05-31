@@ -1,17 +1,20 @@
-def subsets_with_sum(numbers_set:list, target:int, with_replacement:bool):
-    print(f"The numbers that will be used to reach the sum of {target} are:\n{numbers_set}\nThe sets can have replaced numbers? {with_replacement}.\n")
-    print(f"The larger the \"target\" ({target}) is the longer this will take.")
+def subsets_with_sum(numbers_to_be_used: bool, target: int):
+    if numbers_to_be_used <= 0:
+        raise ValueError("\"total_numbers\" must be bigger than 0.")
+    elif numbers_to_be_used == 1:
+        yield target,
+    else:
+        for value in range(target + 1):
+            for permutation in subsets_with_sum(numbers_to_be_used - 1, target - value):
+                yield (value,) + permutation
 
-    def generator(index, generation_list, generated_set, generation_target):
-        if generation_target == sum(generation_list):
-            generated_set.append(generation_list)
-        elif generation_target < sum(generation_list):
-            return
-    
-        for i in range(index, len(numbers_set)):
-            generator(i + replacement_variable, generation_list + [numbers_set[i]], generated_set, generation_target)
 
-        return generated_set
-    
-    replacement_variable = int(not with_replacement)
-    return generator(0, [], [], target)
+def filter_numbers_used(combinations_set, numeric_range):
+    index = 0
+    for i in range(len(combinations_set)):
+        if not set(combinations_set[index]).issubset(numeric_range):
+            combinations_set.pop(index)
+        else:
+            index += 1
+
+    return combinations_set
