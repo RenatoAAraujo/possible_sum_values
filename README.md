@@ -1,5 +1,5 @@
 # Possible combinations of a sum
-> This tutorial assumes that your on Unix like OS. If not make the necessary adjustments.
+>This tutorial assumes that your on Unix like OS. If not make the necessary adjustments.
 
 #### Requirement
 * [Python3](https://www.python.org/)
@@ -10,9 +10,9 @@ cd ~/projects/possible_sum_values
 * lib `virtualenv`, in the terminal execute:
 >A virtualenv guarantees that your python environment is not influenced by other projects.
  ```
- sudo pip3 install virtualenv
- virtualenv venv/
- source venv/bin/activate
+sudo pip3 install virtualenv
+virtualenv venv/
+source venv/bin/activate
  ``` 
 
 #### Project Dependencies
@@ -22,4 +22,5 @@ pip install -r requirements.txt
 ``` 
 
 #### Generate Combinations
-> Run the file [export_data.py](export_data.py) and tweak the variables ```numbers_set```, ```with_replacement``` and ```target```.
+>Run the file [export_data.py](export_data.py) and tweak the the variables ```numbers_to_be_used```,```target``` and ```numeric_range```.
+>Multiple combination target can be used, change the range accordingly.
