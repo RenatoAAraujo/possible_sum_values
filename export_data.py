@@ -4,6 +4,7 @@ from datetime import datetime
 import pandas as pd
 import pickle
 
+
 def save_unfiltered_list(ls: list, name: str):
     print(f"[{datetime.now()}] Saving {name} pickle file")
     with open(f"{name}.pkl", "wb") as f:
