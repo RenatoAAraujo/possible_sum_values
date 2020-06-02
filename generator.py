@@ -1,4 +1,7 @@
+from temporary_files import save_file
+
 from datetime import datetime
+import numpy as np
 
 
 def sub_lists_with_sum(total_numbers_to_be_used: bool, target: int):
@@ -12,7 +15,14 @@ def sub_lists_with_sum(total_numbers_to_be_used: bool, target: int):
                 yield [value, ] + permutation
 
 
-def filter_numbers_used(combinations_list, numeric_range):
+def filter_numbers_used(combinations_list, target, save_filtered_lists):
+    print(f"[{datetime.now()}] Filtering list out of range. List contains {len(combinations_list)} values")
+    combinations_list = np.array(combinations_list)
+    combinations_list = combinations_list[(combinations_list <= target).all(axis=1)].tolist()
+    if save_filtered_lists:
+        save_file(combinations_list, f"target_{target}")
+    print(f"[{datetime.now()}] After filtering list contains {len(combinations_list)} values")
+
     list_len = len(combinations_list)
     filtered_list = []
 
@@ -21,9 +31,7 @@ def filter_numbers_used(combinations_list, numeric_range):
         if i % 10000 == 0:
             print(f"[{datetime.now()}] {i}/{list_len}")
 
-        if not set(combinations_list[index]).issubset(numeric_range):
-            combinations_list.pop(index)
-        elif sorted(combinations_list[index]) in filtered_list:
+        if sorted(combinations_list[index]) in filtered_list:
             combinations_list.pop(index)
         else:
             filtered_list.append(sorted(combinations_list[index]))
