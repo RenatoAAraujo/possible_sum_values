@@ -15,10 +15,10 @@ def sub_lists_with_sum(total_numbers_to_be_used: bool, target: int):
                 yield [value, ] + permutation
 
 
-def filter_numbers_used(combinations_list, target, save_filtered_lists):
-    print(f"[{datetime.now()}] Filtering list out of range. List contains {len(combinations_list)} values")
+def filter_numbers_used(combinations_list, target, numeric_range, save_filtered_lists):
+    print(f"[{datetime.now()}] Filtering list values out of range. List contains {len(combinations_list)} values")
     combinations_list = np.array(combinations_list)
-    combinations_list = combinations_list[(combinations_list <= target).all(axis=1)].tolist()
+    combinations_list = combinations_list[(combinations_list <= max(numeric_range)).all(axis=1)].tolist()
     if save_filtered_lists:
         save_file(combinations_list, f"target_{target}")
     print(f"[{datetime.now()}] After filtering list contains {len(combinations_list)} values")
