@@ -25,7 +25,7 @@ def get_combination_lists(target, numeric_range, save_filtered_lists):
 if __name__ == "__main__":
     make_temporary_files = False
     total_numbers_to_be_used = 6
-    numbers_to_be_used = range(0, 5)
+    numbers_to_be_used = range(0, 40)
 
     if cpu_count() > 3:
         executor = ThreadPoolExecutor(cpu_count() - 3)
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     complete_df_list = list()
     complete_df = pd.DataFrame()
     
-    for t in range(0, 10)[::-1]:
+    for t in range(60, 71)[::-1]:
         complete_df_list.append(executor.submit(get_combination_lists, t, numbers_to_be_used, make_temporary_files))
     for i in as_completed(complete_df_list):
         complete_df = pd.concat([complete_df, i.result()]).sort_values(by=["total"], ascending=False)
