@@ -1,6 +1,6 @@
 from generator import sub_lists_with_sum, filter_numbers_used
 
-from concurrent.futures import ThreadPoolExecutor, as_completed, wait
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from multiprocessing import cpu_count
 import pandas as pd
@@ -25,7 +25,7 @@ def get_combination_lists(target, numeric_range, save_filtered_lists):
 if __name__ == "__main__":
     make_temporary_files = False
     total_numbers_to_be_used = 6
-    numbers_to_be_used = range(0, 40)
+    numbers_to_be_used = range(1, 40)
 
     executor = ThreadPoolExecutor(cpu_count() / 3)
     complete_df_list = list()
