@@ -30,6 +30,9 @@ def filter_numbers_used(combinations_list, target, numeric_range, save_filtered_
     for i in range(list_len):
         if i % 10000 == 0:
             print(f"[{datetime.now()}] {i}/{list_len}")
+            if save_filtered_lists:
+                save_file(filtered_list, f"temp_filtered_list_{target}")
+                save_file(index, f"temp_index_{target}")
 
         if sorted(combinations_list[index]) in filtered_list:
             combinations_list.pop(index)
