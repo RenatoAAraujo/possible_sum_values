@@ -12,7 +12,7 @@ def get_combination_lists(target, numeric_range, save_filtered_lists):
 
     combinations_list = list(sub_lists_with_sum(total_numbers_to_be_used, target))
     combinations_list = filter_numbers_used(combinations_list, target, numeric_range, save_filtered_lists)
-    print(f"[{datetime.now()}] total permutations for target ({target}): {len(combinations_list)}\n")
+    print(f"[{datetime.now()}] total permutations for target ({target}): {len(combinations_list)}")
 
     df_list = pd.DataFrame({"possible_set": combinations_list})
     df_list["total"] = [sum(x) for x in df_list["possible_set"]]
