@@ -23,7 +23,7 @@ def get_combination_lists(target, numeric_range, save_filtered_lists):
 
 
 if __name__ == "__main__":
-    make_temporary_files = True
+    make_temporary_files = False
     total_numbers_to_be_used = 6
     numbers_to_be_used = range(0, 40)
 
