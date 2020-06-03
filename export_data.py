@@ -27,7 +27,7 @@ if __name__ == "__main__":
     total_numbers_to_be_used = 6
     numbers_to_be_used = range(0, 40)
 
-    executor = ThreadPoolExecutor(cpu_count() / 2)
+    executor = ThreadPoolExecutor(cpu_count() / 4)
     complete_df_list = list()
     complete_df = pd.DataFrame()
     
