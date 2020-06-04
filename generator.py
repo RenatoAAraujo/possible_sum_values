@@ -15,7 +15,7 @@ def sub_lists_with_sum(total_numbers_to_be_used: bool, target: int):
                 yield [value, ] + permutation
 
 
-def filter_numbers_used(combinations_list, target, numeric_range, save_filtered_lists):
+def filter_numbers_used(combinations_list, target, numeric_range, replace, save_filtered_lists):
     print(f"[{datetime.now()}] [{target}] Filtering list values out of range. List contains {len(combinations_list)} values")
     combinations_list = np.array(combinations_list)
     combinations_list = combinations_list[(combinations_list > 0).all(axis=1)]
@@ -27,11 +27,12 @@ def filter_numbers_used(combinations_list, target, numeric_range, save_filtered_
 
     filtered_list = np.unique(combinations_list, axis=0).tolist()
 
-    index=0
-    for i in range(len(filtered_list)):
-        if len(set(filtered_list[i])) != len(set(filtered_list[i])):
-            filtered_list.pop(i)
-        else:
-            index += 1
+    if not replace:
+        index=0
+        for i in range(len(filtered_list)):
+            if len(set(filtered_list[i])) != len(set(filtered_list[i])):
+                filtered_list.pop(index)
+            else:
+                index += 1
 
     return filtered_list
