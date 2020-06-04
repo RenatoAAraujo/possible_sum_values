@@ -24,6 +24,7 @@ def get_combination_lists(target, numeric_range, replace, save_files):
 
 
 if __name__ == "__main__":
+    targets = range(60, 71)
     total_numbers_to_be_used = 6
     numbers_to_be_used = range(1, 21)
     replace_numbers = False
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     complete_df_list = list()
     complete_df = pd.DataFrame()
     
-    for t in range(60, 71)[::-1]:
+    for t in targets[::-1]:
         complete_df_list.append(executor.submit(get_combination_lists, t, numbers_to_be_used, replace_numbers, make_temporary_files))
     for i in as_completed(complete_df_list):
         complete_df = pd.concat([complete_df, i.result()]).sort_values(by=["total"], ascending=False)
