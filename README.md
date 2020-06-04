@@ -10,8 +10,7 @@ cd ~/projects/possible_sum_values
 * lib `virtualenv`, in the terminal execute:
 >A virtualenv guarantees that your python environment is not influenced by other projects.
  ```
-sudo pip3 install virtualenv
-virtualenv venv/
+python3 -m venv venv
 source venv/bin/activate
  ``` 
 
