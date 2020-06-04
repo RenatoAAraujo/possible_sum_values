@@ -39,6 +39,11 @@ if __name__ == "__main__":
     for i in as_completed(complete_df_list):
         complete_df = pd.concat([complete_df, i.result()]).sort_values(by=["total"], ascending=False)
     
-    complete_df.to_csv(f"possible_combinations_{min(numbers_to_be_used)}_to_{max(numbers_to_be_used)}.csv", sep=",", header=True, index=False)
+    complete_df.to_csv(
+        f"temp/possible_combinations_{min(numbers_to_be_used)}_to_{max(numbers_to_be_used)}.csv",
+        sep=",",
+        header=True,
+        index=False
+    )
 
     print("Done!")
