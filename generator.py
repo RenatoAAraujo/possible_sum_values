@@ -21,8 +21,11 @@ def filter_numbers_used(combinations_list, target, numeric_range, replace, save_
     combinations_list = combinations_list[(combinations_list > 0).all(axis=1)]
     combinations_list = combinations_list[(combinations_list <= max(numeric_range)).all(axis=1)]
     combinations_list.sort(axis=1)
-
-    filtered_list = np.unique(combinations_list, axis=0).tolist()
+    
+    if len(combinations_list) > 0:
+        filtered_list = np.unique(combinations_list, axis=0).tolist()
+    else:
+        filtered_list = combinations_list.tolist()
 
     if not replace:
         index=0
