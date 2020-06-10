@@ -36,7 +36,7 @@ if __name__ == "__main__":
     for t in targets[::-1]:
         complete_df_list.append(executor.submit(get_combination_lists, t, numbers_to_be_used, replace_numbers, make_temporary_files))
     for i in as_completed(complete_df_list):
-        pd.concat([complete_df, i.result()]).sort_values(by=["total"], ascending=False)
+         complete_df = pd.concat([complete_df, i.result()]).sort_values(by=["total"], ascending=False)
 
     
     complete_df.to_csv(
