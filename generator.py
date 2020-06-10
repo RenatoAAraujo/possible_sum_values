@@ -30,7 +30,7 @@ def filter_numbers_used(combinations_list, target, numeric_range, replace, save_
     if not replace:
         index=0
         for i in range(len(filtered_list)):
-            if len(set(filtered_list[i])) != len(set(filtered_list[i])):
+            if len(set(filtered_list[index])) != len(filtered_list[index]):
                 filtered_list.pop(index)
             else:
                 index += 1
