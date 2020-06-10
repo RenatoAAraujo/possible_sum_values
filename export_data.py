@@ -26,7 +26,7 @@ def get_combination_lists(target, numeric_range, replace, save_files):
 if __name__ == "__main__":
     targets = range(60, 71)
     total_numbers_to_be_used = 6
-    numbers_to_be_used = range(1, 21)
+    numbers_to_be_used = range(1, 40)
     replace_numbers = False
     make_temporary_files = False
 
@@ -40,7 +40,7 @@ if __name__ == "__main__":
         complete_df = pd.concat([complete_df, i.result()]).sort_values(by=["total"], ascending=False)
     
     complete_df.to_csv(
-        f"temp/possible_combinations_{min(numbers_to_be_used)}_to_{max(numbers_to_be_used)}.csv",
+        f"temp/possible_combinations_{min(numbers_to_be_used)}_to_{max(numbers_to_be_used)}_size_{total_numbers_to_be_used}.csv",
         sep=",",
         header=True,
         index=False
