@@ -21,9 +21,6 @@ def filter_numbers_used(combinations_list, target, numeric_range, replace, save_
     combinations_list = combinations_list[(combinations_list > 0).all(axis=1)]
     combinations_list = combinations_list[(combinations_list <= max(numeric_range)).all(axis=1)]
     combinations_list.sort(axis=1)
-    if save_files:
-        save_file(combinations_list, f"target_{target}")
-    print(f"[{datetime.now()}] [{target}] After filtering list contains {len(combinations_list)} values")
 
     filtered_list = np.unique(combinations_list, axis=0).tolist()
 
@@ -34,5 +31,9 @@ def filter_numbers_used(combinations_list, target, numeric_range, replace, save_
                 filtered_list.pop(index)
             else:
                 index += 1
+    print(f"[{datetime.now()}] [{target}] After filtering list contains {len((filtered_list))} values")
+
+    if save_files:
+        save_file(filtered_list, f"target_{target}")
 
     return filtered_list
